@@ -45,8 +45,10 @@ object ZioStreamIntro extends ZIOAppDefault {
   // ZPipeline[Env, Err, In, Out] = ZStream[Env, Err, In] => ZStream[Env, Err, Out].
   val businessLogic: ZPipeline[Any, Nothing, String, Int] =
   ZPipeline.map[String, Int](_.toInt)
+
   val filterLogic: ZPipeline[Any, Nothing, Int, Int] =
     ZPipeline.filter[Int](_ > 3)
+
   val appLogic: ZPipeline[Any, Nothing, String, Int] =
     businessLogic >>> filterLogic
 

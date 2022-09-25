@@ -25,4 +25,6 @@ object ScalaCollections extends App {
   val fibs = fibFrom(1, 1).take(7)
   val fabsToList = fibs.toList
   println(s"Fib using lazy list: $fabsToList")
+
+  // Read more: https://docs.scala-lang.org/overviews/collections-2.13/concrete-immutable-collection-classes.html
 }
