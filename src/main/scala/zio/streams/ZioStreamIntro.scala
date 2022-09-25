@@ -1,8 +1,8 @@
 package zio.streams
 
 import zio.Console.printLine
-import zio.stream.{ZPipeline, ZSink, ZStream}
-import zio.{Chunk, Scope, ZIO, ZIOAppArgs, ZIOAppDefault}
+import zio.stream.{ ZPipeline, ZSink, ZStream }
+import zio.{ Chunk, Scope, ZIO, ZIOAppArgs, ZIOAppDefault }
 
 object ZioStreamIntro extends ZIOAppDefault {
 
