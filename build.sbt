@@ -10,6 +10,7 @@ lazy val root = (project in file("."))
       "dev.zio" %% "zio-kafka" % "2.0.1",
       "dev.zio" %% "zio-streams" % "2.0.2",
       "dev.zio" %% "zio-json" % "0.3.0",
+      "io.d11" %% "zhttp" % "2.0.0-RC11",
       "dev.zio" %% "zio-test" % "2.0.2" % Test
     ),
     testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework")
