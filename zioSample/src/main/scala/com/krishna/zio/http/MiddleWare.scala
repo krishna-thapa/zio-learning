@@ -5,20 +5,20 @@ import zhttp.http.middleware.Cors.CorsConfig
 import zhttp.service.Server
 import zio._
 
-object MiddleWare extends ZIOAppDefault {
+object MiddleWare extends ZIOAppDefault {          
 
   val port: Int = 9001
 
-  val app: UHttpApp = Http.collect[Request] {
+  val app: UHttpApp = Http.collect[Request] {      
     case Method.GET -> !! / "owls"          => Response.text("Hoot!")
     case Method.GET -> "" /: "owls" /: name =>
       Response.text(s"$name says: Hoot!")
   } @@ Middleware.csrfGenerate()
 
   val zApp: UHttpApp =
-    Http.collectZIO[Request] { case Method.POST -> !! / "owls" =>
-      Random.nextIntBetween(3, 6).map(n => Response.text("Hoot! " * n))
-    } @@ Middleware.csrfValidate()
+    Http.collectZIO[Request] { case Method.POST -> !! / "owls" =>     
+      Random.nextIntBetween(3, 6).map(n => Response.text("Hoot! " * n))     
+      } @@ Middleware.csrfValidate()
 
   val authApp: UHttpApp = Http.collect[Request] {
     case Method.GET -> !! / "secret" / "owls" =>
